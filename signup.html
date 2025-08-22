@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in & sign-up page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <div class="container">
+        Sign-up
+        <div class="email-box">
+            <input type="text" placeholder="Email" id = "email-signup-box">
+        </div>
+        <div class="pass-box">
+            <input type="text" placeholder="password" id = "pass-signup-box">
+        </div>
+        <div class="confirmpass">
+            <input type="text" placeholder="confirm password" id = "confirm-pass">
+        </div>
+        <button class = "signup">
+            Sign up
+        </button>
+    </div>
+
+<script>
+    async function signup(){
+        const email = document.getElementById("email-signup-box").value;
+        const password = document.getElementById("pass-signup-box").value;
+        const confirm = document.getElementById("confirm-pass").value;
+
+        if(confirm !== password){
+            alert("passwrod is not matching");
+            return;
+        }
+        try{
+            let response = await axios.post("http://127.0.0.1:3000/sign-up",{
+                email: email,
+                password: password
+            });
+            alert(response.data.message);
+            console.log("signed up successfully");
+        }
+        catch(error){
+            console.log(error);
+            alert("signupfailed");
+        }
+    }
+    document.querySelector(".signup").addEventListener("click", function(){
+        signup();
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+.email-box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.confirmpass{
+    margin-top: 10px;
+}
+.signup{
+    margin-top: 10px;
+    margin-left: 55px;
+}
+.Login{
+    margin-top: 10px;
+    margin-left: 55px;
+}
+.text{
+    font-size: 9px;
+}

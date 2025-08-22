@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in & sign-up page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <div class="container">
+        Login
+        <div class="email-box">
+            <input type="text" placeholder="Email" id="inp-email-box">
+        </div>
+        <div class="pass-box">
+            <input type="text" placeholder="password" id="inp-password-box">
+        </div>
+        <button class="Login">
+            Login
+        </button>
+    </div>
+    <a href="signup.html" , class="text"> create a new account</a>
+
+
+    <script>
+        async function login() {
+            const email = document.getElementById("inp-email-box").value;
+            const password = document.getElementById("inp-password-box").value;
+            try {
+                let response = await axios.post("http://127.0.0.1:3000/login", {
+                    email: email,
+                    password: password
+                });
+                alert(response.data.message);
+            }
+            catch(error){
+                console.error(error);
+                alert("login failed")
+            }
+        }
+
+        document.querySelector(".Login").addEventListener("click", function () {
+            login();
+            alert("button was clicked");
+        })
+
+    </script>
+</body>
+
+</html>
