@@ -31,7 +31,7 @@
             const email = document.getElementById("inp-email-box").value;
             const password = document.getElementById("inp-password-box").value;
             try {
-                let response = await axios.post("http://127.0.0.1:3000/login", {
+                let response = await axios.post("sign-in-sign-up-kfqo.vercel.app/login", {
                     email: email,
                     password: password
                 });
